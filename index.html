@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset=utf-8/>
+    <title>Turkcell TV+ HLS Test</title>
+    <style>
+        .vjs-default-skin {
+            margin: 0 auto;
+        }
+    </style>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/video.js/5.10.2/alt/video-js-cdn.css" rel="stylesheet">
+    <link href="css/videojs.relatedCarousel.css" rel="stylesheet">
+    <!--<link href="/home/yagiz/Desktop/videojs/videojs-overlay.css" rel="stylesheet">-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/video.js/5.10.2/video.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-contrib-hls/3.0.2/videojs-contrib-hls.js"></script>
+    <script src="plugins/videojs.relatedCarousel.js"></script>
+    <!--<script src="plugins/videojs-overlay.js"></script>-->
+    <!--<script src="plugins/videojs-custom.js"></script>-->
+
+</head>
+<body>
+<video id="hlsVideoPlayer" class="video-js vjs-default-skin" controls preload="auto" width="1280" height="640" src=""
+       data-setup='{}'>
+    <source id="videoSrc" src="http://content.jwplatform.com/manifests/vM7nH0Kl.m3u8" type="application/x-mpegURL">
+</video>
+<script>
+
+    init();
+
+    function init() {
+        startFullScreenPlayerOnstartup();
+    }
+
+    function startFullScreenPlayerOnstartup() {
+        videojs("hlsVideoPlayer", {}, function() {
+            var player = this;
+            player.relatedCarousel([
+                { imageSrc: 'images/nat.png', url: 'http://media.w3.org/2010/05/bunny/movie.mp4', title: 'Nat Geo' },
+                { imageSrc: 'images/iz.png', url: 'http://vjs.zencdn.net/v/oceans.mp4', title: 'Iz TV' }
+            ]);
+        });
+    }
+</script>
+</body>
+</html>
